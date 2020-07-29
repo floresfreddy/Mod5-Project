@@ -1,3 +1,4 @@
 class Order < ApplicationRecord  
-    belongs_to :tickets
+    belongs_to :ticket
+
 end

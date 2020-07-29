@@ -1,21 +1,24 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
-function NavBar(){
+class NavBar extends React.Component{
 
-    let logout = () => {
+    logout = () => {
         localStorage.clear()
+        this.props.history.push("/")
     }
     
-    return(
-        <div className="ui inverted red menu">
-            <a className="item" href={"/"}>
-            <h2 className="ui header">
-            <i className="paint brush icon" />
-            <div className="content">Painting App</div>
-            </h2>
+    render(){
+       return( 
+        <div className="ui menu" style={{justifyContent: 'flex-end'}} >
+            <a className="item"  style={{}} href={"/dashboard"}>
+                <h2 className="ui header">
+                <i className="cloud icon" />
+                <div className="content">Cloud Clean</div>
+                </h2>
             </a>
-            <div className="item">
+            {/* <div className="item">
             <h2 className="ui header">
                 <div className="content">
                     <Link to="/signup" style={{color: "black"}}>SignUp</Link>
@@ -28,17 +31,24 @@ function NavBar(){
                     <Link to="/login" style={{color: "black"}}>Login</Link>
                 </div>
             </h2>
-            </div>
-            <div className="item">
-            <h2 className="ui header">
-                <div className="content">
-                   <button onClick={logout}>Logout</button>
-                </div>
-            </h2>
+            </div> */}
+
+
+
+            {/* render conditionally at some point */}
+            
+            <div className="item" >
+                <h2 className="ui header">
+                    <div className="content">
+                    <button className="ui massive button" onClick={this.logout}>Logout</button>
+                    </div>
+                </h2>
             </div>
             
+            
         </div>
-    )
+       )
+    }
 }
 
-export default NavBar
+export default withRouter(NavBar)

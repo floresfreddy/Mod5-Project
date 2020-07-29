@@ -1,11 +1,8 @@
 import React from 'react';
 
 import 'semantic-ui-css/semantic.min.css';
-import NavBar from './NavBar'
+import LandingPage from './LandingPage'
 
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Login from './Login'
-import SignUp from './SignUp'
 
 
 
@@ -17,63 +14,19 @@ class App extends React.Component{
       testNew: "testnew",
       test: "test",
       form: false,
-      paintings: []
+      user: {}
     }
-  }
-
-  addPainting = (e) => {
-    e.preventDefault()
-  
-    let newPainting = {
-      title: e.target[0].value,
-      image: e.target[1].value,
-      artist: {
-        name: e.target[2].value
-      }
-    }
-
-    let newArr = [...this.state.paintings, newPainting]
-
-    this.setState({
-      paintings: newArr
-    }) 
-  }
-
-  getPaintings = () => {
-      fetch("http://localhost:3000/api/v1/users",
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.token}`
-        } 
-      })
-      .then(res => res.json())
-      .then(console.log)
   }
 
   render(){
 
     return (
-   
-      <BrowserRouter>
     <div>
-        <NavBar />
-        <button onClick={this.getPaintings}>Show Paintings</button>
-        <Switch>
-
-        <Route path="/login" component={Login} />
-
-        <Route path="/signup" component={SignUp} />
-
-        {/* <Route path="/paintings/new" render = {(routeProps) =><PaintingForm {...routeProps} add={this.addPainting} /> } /> */}
-
-    
-        </Switch>
-        
-
+      <LandingPage/>
     </div>
-    </BrowserRouter>
+        
   )};
+
 }
 
 export default App;

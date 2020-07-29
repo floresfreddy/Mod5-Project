@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { withRouter, NavLink } from 'react-router-dom'
 
 class SignUp extends Component{
 
@@ -27,7 +28,10 @@ class SignUp extends Component{
         })
         .then(res => res.json())
         .then(console.log)
-
+        .then(() => {
+            alert("Signing up")
+            setTimeout(function(){ this.props.history.push("/"); }, 3000)
+        })
     }
    
     render(){
@@ -47,11 +51,21 @@ class SignUp extends Component{
             <input name="address" type="text" onChange={(e) => this.handleChange(e)}/>
             <input type="submit"/>
             </form>
+            <br></br>
+            <NavLink
+                to="/"
+                exact
+                
+                activeStyle={{
+                    background: 'darkblue'
+                }}
+                > Back
+            </NavLink>
         </div>
         )
     }
 }
 
-export default SignUp
+export default withRouter(SignUp)
 
 

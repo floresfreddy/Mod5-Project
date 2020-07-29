@@ -16,6 +16,7 @@ class ApplicationController < ActionController::API
         begin
             user_id = JWT.decode(token, "se042020")[0]["user_id"]
             user = User.find(user_id)
+            return user
         rescue 
             user = nil
         # ensure

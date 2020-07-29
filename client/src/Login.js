@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { withRouter , NavLink } from 'react-router-dom'
 
 class Login extends Component{
     handleChange = (e) => {
@@ -25,8 +26,17 @@ class Login extends Component{
         .then(userInfo => {
             console.log(userInfo)
             localStorage.token = userInfo.token
-            localStorage.user = userInfo 
+            localStorage.user_id = userInfo.id
+
+            if(localStorage.token !== 'undefined'){
+                this.props.history.push('/dashboard')  
+            }
+            else{
+                alert('Invalid username or password')
+            }  
+             
         })
+        e.target.reset()
         
     }
    
@@ -41,12 +51,22 @@ class Login extends Component{
             <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
             <input type="submit"/>
             </form>
+            <br></br>
+            <NavLink
+                to="/signup"
+                exact
+                
+                activeStyle={{
+                    background: 'darkblue'
+                }}
+                > Signup
+            </NavLink>
         </div>
         )
     }
 }
 
 
-export default Login
+export default withRouter(Login)
 
 
