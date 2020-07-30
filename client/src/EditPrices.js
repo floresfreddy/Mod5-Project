@@ -46,14 +46,14 @@ class EditPrices extends React.Component {
 
   render(){
   return(
-      <div>
+      <div class='prices-div'>
           <form onSubmit={(e) => {
               this.updatePrices(e)
               }}>
               {this.props.user.items.sort((a, b) => a.id - b.id).map(item => 
                 <div>
                     <label>{item.item_type} - {item.name}</label>
-                    <input className="ui label input" type='number' step='0.01' id={item.id} defaultValue={item.price} required/>
+                    <input className="" type='number' step='0.01' id={item.id} defaultValue={item.price} required/>
                 </div> 
               )} 
               <input className="ui button" type='submit' value='Update Prices'/>  
@@ -61,9 +61,9 @@ class EditPrices extends React.Component {
 
           <br/>
           <br/>
-          <p onClick={()=>this.goHome()} className="ui massive button">
+          <button onClick={()=>this.goHome()} className="ui massive button back-button" style={{float:"right"}}>
               HOME
-          </p>
+          </button>
       </div>
   )}
 

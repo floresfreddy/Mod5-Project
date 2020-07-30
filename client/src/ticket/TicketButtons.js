@@ -35,6 +35,13 @@ class Buttons extends React.Component {
         this.props.newItem()
         this.buttonMenuSelect(this.state.category)
     }
+
+
+    placeOrder = () => {
+        this.props.placeOrder()
+        this.buttonMenuSelect('new order?')
+        
+    }
     
     renderSwitch(param) {
         switch(param) {
@@ -63,6 +70,14 @@ class Buttons extends React.Component {
                         </div>
                     </div>
                 )
+            case 'new order?':
+                    return (
+                        <div>
+                            <h1>New Item?</h1>
+                            <button className= "ui massive button" onClick={()=> this.buttonMenuSelect('category')}>Yes</button>
+                            <button className= "ui massive button" onClick={()=> this.props.selected("ticketAccount")}>No</button>
+                        </div>
+                    )
             default: 
                 return null; 
         }
@@ -71,13 +86,18 @@ class Buttons extends React.Component {
     
       render() {
         return(
-          <div class="">
+          <div class="button-grid">
             {  
-                <div class=''>
+                <div class='row-topB'>
                     {this.renderSwitch(this.state.buttonMenu)}  
                 </div>
             
             } 
+            <div class='row-bottomB'>
+            <button style={{}} className="ui blue massive button ticket-button" onClick={()=>this.placeOrder()}>PLACE ORDER</button>
+            <button style={{}} className="ui massive button ticket-button" onClick={()=>this.props.mainMenu('main')}>HOME</button> 
+
+            </div>
           </div>
         )
       }

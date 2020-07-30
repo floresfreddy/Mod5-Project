@@ -1,3 +1,3 @@
 class OrderSerializer < ActiveModel::Serializer
-    attributes :item, :cost, :description, :date, :account_id
+    attributes :item, :cost, :description, :ticket_id
   end

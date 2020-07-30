@@ -36,22 +36,22 @@ class AddAccount extends React.Component {
 
     render(){
     return(
-        <div>
+        <div class='form-div'>
             <form onSubmit={(e) => {
                 this.add(e)
                 this.goHome()
                 }}>
-                <input className="ui label input" type='text' placeholder='First Name'/>
-                <input className="ui label input" type='text' placeholder='Last Name'/>
-                <input className="ui label input" type='text' placeholder='Phone'/>
-                <input className="ui label input" type='text' placeholder='Address'/>
+                <input className="" type='text' placeholder='Last Name'/>
+                <input className="" type='text' placeholder='First Name'/>
+                <input className="" type='text' placeholder='Phone'/>
+                <input className="" type='text' placeholder='Address'/>
                 <input className="ui button" type='submit' value='Add Account'/>
             </form>
             <br/>
             <br/>
-            <p onClick={()=>this.goHome()} className="ui massive button">
+            <button onClick={()=>this.goHome()} className="ui massive button back-button" style={{float:"right"}}>
                 BACK
-            </p>
+            </button>
         </div>
     )}
 }

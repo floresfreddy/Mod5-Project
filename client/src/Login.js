@@ -42,14 +42,14 @@ class Login extends Component{
    
     render(){
         return(
-        <div>
+        <div class='form-div'>
             <h2>LogIn</h2>
             <form onSubmit={(e) => this.logIn(e)}>
-            <label>UserName</label>
-            <input name="username" type="text" onChange={(e) => this.handleChange(e)}/>
-            <label>Password</label>
-            <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
-            <input type="submit"/>
+                <label>UserName</label>
+                <input name="username" type="text" onChange={(e) => this.handleChange(e)} required/>
+                <label>Password</label>
+                <input name="password" type="password" onChange={(e) => this.handleChange(e)} required/>
+                <input type="submit"/>
             </form>
             <br></br>
             <NavLink
@@ -57,7 +57,8 @@ class Login extends Component{
                 exact
                 
                 activeStyle={{
-                    background: 'darkblue'
+                    background: 'darkblue',
+                    fontWeight: 'bold'
                 }}
                 > Signup
             </NavLink>

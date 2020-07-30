@@ -84,7 +84,18 @@ class CreateTicket extends React.Component {
     }
 
     placeOrder = () => {
-        
+
+        if(this.state.itemList.length == 0) return alert("There are no items yet!")
+
+
+        let items = this.state.itemList;
+        let formData = {};
+
+        for (let i = 0; i < items.length; i++) {
+            formData[parseInt(items[i].id)] = items[i];
+        }
+
+
         fetch(`http://localhost:3000/api/v1/orders`,
         {
         method: "POST",
@@ -93,12 +104,16 @@ class CreateTicket extends React.Component {
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({
-            orders: this.state.itemList,
+            orders: formData,
             id: localStorage.user_id
             })
         })
         .then(res => res.json())
         .then(user => this.props.updateUser(user))
+        .then(this.newItem())
+        .then(this.setState({
+            itemList: []
+        }))
 
     }
 
@@ -112,37 +127,13 @@ class CreateTicket extends React.Component {
 
                 <ItemList user={this.props.user} itemList={this.state.itemList} account={this.props.account}/>
             </div>
-            <div class="column-ticketB">
-
-            </div>
-            <div class='column-button'style={{}}>
-                <Buttons user={this.props.user} setCurrentItem={this.setCurrentItem} addDescription={this.addDescription} newItem={this.newItem}/>
-            </div>
-            <div class="column-bottomB">
-                <button style={{}} className="ui blue button" onClick={()=>this.placeOrder}>PLACE ORDER</button>
-                <button style={{}} className="ui button" onClick={()=>this.props.mainMenu('main')}>HOME</button> 
+            <div class='column-buttons'style={{}}>
+                <Buttons user={this.props.user} setCurrentItem={this.setCurrentItem} addDescription={this.addDescription} newItem={this.newItem} mainMenu={this.props.mainMenu} placeOrder={this.placeOrder} selected={this.props.selected}/>
             </div>
             
         </div>
                 
       )
-    //   return (
-    //     <div  class="" style={{display: 'flex'}}>
-            
-    //         <div style={{order: '1'}}> 
-
-    //             <ItemList user={this.props.user} itemList={this.state.itemList} account={this.props.account}/>
-    //         </div>
-    //         <div style={{order: '2'}}>
-    //             <Buttons user={this.props.user} setCurrentItem={this.setCurrentItem} addDescription={this.addDescription} newItem={this.newItem}/>
-
-    //             <button style={{order: '2', alignSelf: 'flex-end'}} className="ui blue button" onClick={()=>this.placeOrder}>PLACE ORDER</button>
-    //             <button style={{order: '2', alignSelf: 'flex-end'}} className="ui button" onClick={()=>this.props.mainMenu('main')}>HOME</button> 
-    //         </div>
-            
-    //     </div>
-                
-    //   )
     }
   }
   

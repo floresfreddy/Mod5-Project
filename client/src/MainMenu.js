@@ -8,7 +8,7 @@ class MainMenu extends React.Component {
     //         login: false 
     //     })
     // }
-  
+   
     editProfile=()=>{
         this.props.selectedLink("editProfile")
      }
@@ -36,25 +36,25 @@ class MainMenu extends React.Component {
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
     }}>
-        <p onClick={this.editProfile} className="ui massive button">
+        <button onClick={this.editProfile} className="ui massive button menu-button">
             Edit Profile
-        </p>
+        </button>
 
-        <p onClick={this.accounts} className="ui massive button">
+        <button onClick={this.accounts} className="ui massive button menu-button">
             Accounts
-        </p>
+        </button>
         
-        <p onClick={this.prices} className="ui massive button">
+        <button onClick={this.prices} className="ui massive button menu-button">
              Prices
-        </p>
+        </button>
         
-        <p onClick={this.orders} className="ui massive button">
+        <button onClick={this.orders} className="ui massive button menu-button">
              Orders 
-        </p>
+        </button>
         
-        <p onClick={this.newTicket} className="ui massive button blue">
+        <button onClick={this.newTicket} className="ui massive button blue menu-button">
              New Ticket 
-        </p>
+        </button>
 
         {/* <p className="ui massive button" onClick={this.logout}>
             Logout

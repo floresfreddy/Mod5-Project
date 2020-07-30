@@ -38,22 +38,22 @@ class EditProfile extends React.Component{
 
     render(){
     return(
-        <div>
+        <div class='form-div'>
             <form onSubmit={(e) => {
                 this.add(e)
                 this.goHome()
                 }}>
-                <input className="ui label input" type='text' placeholder='Username'/>
-                <input className="ui label input" type='text' placeholder='Company'/>
-                <input className="ui label input" type='text' placeholder='Phone'/>
-                <input className="ui label input" type='text' placeholder='Address'/>
+                <input className="" type='text' placeholder='Username'/>
+                <input className="" type='text' placeholder='Company'/>
+                <input className="" type='text' placeholder='Phone'/>
+                <input className="" type='text' placeholder='Address'/>
                 <input className="ui button" type='submit' value='Edit Profile'/>
             </form>
             <br/>
             <br/>
-            <p onClick={()=>this.goHome()} className="ui massive button">
+            <button onClick={()=>this.goHome()} className="ui massive button back-button" style={{float:"right"}}>
                 HOME
-            </p>
+            </button>
         </div>
     )}
 }

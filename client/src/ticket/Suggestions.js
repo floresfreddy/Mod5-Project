@@ -2,7 +2,7 @@ import React from 'react'
 
 const Suggestions = (props) => {
   const options = props.results.map(account => (
-    <button className="ui button" style={{display:'block', minWidth: '230px'}} type='button' key={account.id} onClick={() => props.submit(account)}>
+    <button className="ui button" style={{display:'block', minWidth: '370px', minHeight: '50px'}} type='button' key={account.id} onClick={() => props.submit(account)}>
       {`${account.first_name} ${account.last_name}`}
     </button>
   ))

@@ -48,15 +48,17 @@ class AccountSelect extends Component {
                 transform: 'translate(-50%, -50%)',}
       return (
         <div style={divstyle}> 
-            <button className="ui small button" onClick={()=>this.props.mainMenu('main')}>HOME</button>
+            <button className="ui massive button" onClick={()=>this.props.mainMenu('main')}>HOME</button>
             <h1>Select Account</h1>
             <div className='ui left transparent icon input' style={{ border:"1px solid gray", borderRadius:'4px'}} >
-                <input style={{minWidth: '230px', minHeight: '30px'}}
+                <input style={{minWidth: '370px', minHeight: '30px'}}
                     placeholder="Search By Last Name..."
                     ref={input => this.search = input}
                     onChange={this.handleInputChange}
                 />
             </div>
+            <br/>
+            <br/>
                 
             <Suggestions results={this.state.results} submit={this.submitAccount} />
             <br></br>

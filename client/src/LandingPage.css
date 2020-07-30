@@ -8,6 +8,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.menu-button {
+  min-width: 8em !important;  
+  min-height: 6em !important;
+  margin-top: .35em !important;
+}
+.back-button {
+  min-width: 8em !important;  
+  min-height: 6em !important;
+  margin-top: .35em !important;
+}
+
 
 .ui.menu{
     overflow: hidden;
@@ -83,6 +94,67 @@ img {
   max-width: 100%;
 }
 
+/* FORM STUFF */
+
+.form-div{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
+.prices-div{
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -34%)
+}
+
+label{
+  font-size: medium;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  width: 100%;
+  /* min-height: 30em; */
+  /* background-color: #4CAF50; */
+  /* color: white; */
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  /* border-radius: 4px; */
+  cursor: pointer;
+}
+
 
 
 /* TICKET WRITING CSS */
@@ -101,12 +173,9 @@ img {
 }
 
 .column-ticket {
-  /* max-width: 600px; */
-  /* float: left; */
-  /* width: 34%;
-  padding: 20px; */
+  padding: 20px; 
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 3;
 }
 
 .column-ticketB {
@@ -117,18 +186,30 @@ img {
 }
 
 .column-buttons {
-  /* max-width: 600px; */
-  float: left;
-  width: 66%;
-  padding: 20px;
-}
-
-.column-bottomB{
   grid-column-start: 2;
   grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+/* LIST CSS */
+.ticket-grid{
+  height: 100vh;
+  display: grid;
+
+  grid-template-rows: 75% auto;
+}
+
+.ticket-grid-top{
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.ticket-grid-bottom{
   grid-row-start: 2;
   grid-row-end: 3;
 }
+
 
 
 /* BUTTTONS CSS */
@@ -137,6 +218,23 @@ img {
   min-width: 8em !important;  
   min-height: 6em !important;
   margin-top: .35em !important;
+}
+
+
+.button-grid {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 78% auto;
+}
+
+.row-topB{
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.row-bottomB{
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
 .description-grid{
@@ -148,15 +246,11 @@ img {
 .colors{
   grid-column-start: 1;
   grid-column-end: 2;
-  /* grid-row-start: 2;
-  grid-row-end: 3; */
 }
 
 .fabrics{
   grid-column-start: 2;
   grid-column-end: 3;
-  /* grid-row-start: 2;
-  grid-row-end: 3; */
 }
 
 
@@ -168,7 +262,7 @@ img {
     width: 100%;
     text-align: center;
   }
-  img {
+  .img {
     margin: auto;
   }
 

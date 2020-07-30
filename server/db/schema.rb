@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_155319) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "item_type"
-    t.decimal "price", scale: 2, precision: 5
+    t.string "price"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,19 +36,16 @@ ActiveRecord::Schema.define(version: 2020_07_21_155319) do
 
   create_table "orders", force: :cascade do |t|
     t.text "item"
-    t.decimal "cost", scale: 2, precision: 5
+    t.string "cost"
+    t.string "item_type"
     t.text "description"
     t.integer "ticket_id"
-    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
     t.integer "account_id"
-    t.string "items_type"
-    t.decimal "total_cost", scale: 2, precision: 5
-    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

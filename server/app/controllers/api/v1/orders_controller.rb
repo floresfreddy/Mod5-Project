@@ -7,21 +7,20 @@ class Api::V1::OrdersController < ApplicationController
     end
 
     def create
-
-      # hash = order_params[:price].each do |k, v| [k, v] end
+      hash = order_params[:orders].each do |k, v| [k, v] end
       
-      # hash.map{|k,v| Item.update(k, :price => v)}
+      ticket = Ticket.create(:account_id => params['id'])
 
-      render json: User.find(params['id'])
+      hash.map{|k,v| Order.create(:item => v['name'], :cost => v['price'], :description=>v['description'], :ticket_id=>ticket.id, :item_type=>v['item_type'])}
+
+      render json: User.find(params['id']), :include => :tickets
   end
   
   
   private
 
   def order_params
-      params.permit(orders:[])
+      params.permit(orders:{})
   end
-  
-  
   
 end

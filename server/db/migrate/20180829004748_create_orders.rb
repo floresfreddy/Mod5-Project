@@ -3,9 +3,9 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       create_table :orders do |t|
         t.text :item
         t.string :cost
+        t.string :item_type
         t.text :description
         t.integer :ticket_id
-        t.date :date
   
         t.timestamps
       end

@@ -2,15 +2,25 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import './LandingPage.css'
+import SimpleImageSlider from 'react-simple-image-slider'
+import register from './images/register.png'
 
 class LandingPage extends React.Component{
 
+    
     logout = () => {
         localStorage.clear()
         this.props.history.push("/")
     }
     
+   
+    
     render(){
+
+        const images = [
+            {url: register}
+        ]
+
        return( 
         <div>   
             <div className="ui menu">
@@ -39,7 +49,7 @@ class LandingPage extends React.Component{
             <div class="container">
                 <div class="row">
                     <div className="column-66" >
-                        <h1>Start tagging today</h1><br/>
+                        <h1>Start working today</h1><br/>
                         <h2><span>Cloud Clean</span> gives you everything you need to start a home dry cleaning business</h2>
                         <br/>
                         <button className="red ui massive button">Try the live demo</button>
@@ -54,10 +64,12 @@ class LandingPage extends React.Component{
                         <button class="button">Download Application</button>
                     </div> */}
                     <div class="column-33">
-                        <img src="/w3images/img_app.jpg" width="335" height="471"/>
+                        <SimpleImageSlider class='' width={500} height={471} images={images}/>
+                        {/* <img width={471} height={471} src={register}/> */}
                     </div>
                 </div>
             </div>
+            <footer></footer>
         </div>
        )
     }
