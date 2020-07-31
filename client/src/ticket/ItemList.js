@@ -2,16 +2,18 @@ import React from 'react'
 
 class ItemList extends React.Component {
 
-  state = {
-    account: this.props.account,
-    itemList: this.props.itemList
-  }
+  getTotal = () => {
+    var tot = 0
 
-  // componentDidUpdate()
+    for (var i = 0; i < this.props.itemList.length; i++) {
+        tot += (parseInt(this.props.itemList[i].price))
+    }
+    return tot;
+  }
 
   renderList = () => {
 
-    if(this.props.itemList.lenght == 0) return "NO ITEMS"
+    if(this.props.itemList.lenght == 0) return <p>"NO ITEMS"</p>
 
     return(
       <div class="ticket-grid">
@@ -20,15 +22,23 @@ class ItemList extends React.Component {
           <br/>
           {this.props.itemList.map(item=>{
             return (
-            <ul><h2>{item.name}: <span style={{float:'right'}}>{item.price}.00</span></h2>
-              <li>
-                {item.description.map(des => <li><h4>{des}</h4></li>)}
-              </li>
-            </ul>
+              <div>
+                <ul><h2>{item.name}: <span style={{float:'right'}}>{item.price}.00</span></h2>
+                  <li>
+                    {item.description.map(des => <li><h4>{des}</h4></li>)}
+                  </li>
+                </ul>
+                <br></br>
+              </div>
             )
           })}
         </div>
         <div class='ticket-grid-bottom'>
+          <div>
+            <h3>Pieces: {this.props.itemList.length}<span style={{float:'right'}}>Discount: 0.00</span></h3>
+
+            <h2>Total: <span style={{float:'right'}}>{this.getTotal()}.00</span></h2>
+          </div>
 
         </div>
         

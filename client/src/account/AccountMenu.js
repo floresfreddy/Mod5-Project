@@ -31,17 +31,17 @@ class AccountMenu extends React.Component {
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
     }}>
-        <p onClick={this.editAccount} className="ui massive button menu-button">
+        <button onClick={this.editAccount} className="ui massive button menu-button">
             Edit Account
-        </p>
+        </button>
 
-        <p onClick={this.addAccount} className="ui massive button menu-button">
+        <button onClick={this.addAccount} className="ui massive button menu-button">
             Add Account
-        </p>
+        </button>
 
-        <p onClick={this.mainMenu} className="ui massive button blue menu-button">
+        <button onClick={this.mainMenu} className="ui massive button blue menu-button">
              Main Menu 
-        </p>
+        </button>
 
         {/* <p className="ui massive button" onClick={this.logout}>
             Logout

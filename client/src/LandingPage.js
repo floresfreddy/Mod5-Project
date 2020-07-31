@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import './LandingPage.css'
 import SimpleImageSlider from 'react-simple-image-slider'
-import register from './images/register.png'
+import register from './images/register.jpg'
+import sales from './images/sales.jpg'
+import orders from './images/orders.jpg'
 
 class LandingPage extends React.Component{
 
@@ -18,7 +20,9 @@ class LandingPage extends React.Component{
     render(){
 
         const images = [
-            {url: register}
+            {url: register},
+            {url: sales},
+            {url: orders}
         ]
 
        return( 
@@ -49,13 +53,13 @@ class LandingPage extends React.Component{
             <div class="container">
                 <div class="row">
                     <div className="column-66" >
-                        <h1>Start working today</h1><br/>
+                        <h1>Start selling today</h1><br/>
                         <h2><span>Cloud Clean</span> gives you everything you need to start a home dry cleaning business</h2>
                         <br/>
                         <button className="red ui massive button">Try the live demo</button>
                         <br/>
                         <br/>
-                        <a href="/">Learn more about Cloud Clean</a>
+                        <a style={{fontSize: "20px", textDecoration:'under'}} href="/">Learn more about Cloud Clean</a>
                     </div>
                     {/* <div class="column-66">
                         <h1 class="xlarge-font"><b>Cloud Clean</b></h1>
@@ -64,7 +68,7 @@ class LandingPage extends React.Component{
                         <button class="button">Download Application</button>
                     </div> */}
                     <div class="column-33">
-                        <SimpleImageSlider class='' width={500} height={471} images={images}/>
+                        <SimpleImageSlider class='' width={500} height={471} images={images} slideDuration={1} showBullets={false} useGPURender={true} />
                         {/* <img width={471} height={471} src={register}/> */}
                     </div>
                 </div>
